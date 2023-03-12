@@ -1,3 +1,14 @@
+#spring:
+#  config:
+#    import: secret/secret.yml
+
 spring:
-  config:
-    import: secret/secret.yml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_coder_hive?serverTimezone=Asia/Seoul
+    username: coderhive
+    password: 3333
+  servlet:
+    multipart:
+      max-file-size: 10000KB
+      max-request-size: 10000KB
