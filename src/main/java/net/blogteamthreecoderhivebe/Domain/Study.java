@@ -1,4 +1,4 @@
 package net.blogteamthreecoderhivebe.Domain;
 
-public class Post {
+public class Study {
 }
