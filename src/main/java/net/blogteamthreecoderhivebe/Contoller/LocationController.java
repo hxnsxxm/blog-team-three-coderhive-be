@@ -1,5 +1,6 @@
 package net.blogteamthreecoderhivebe.Contoller;
 
+
 import net.blogteamthreecoderhivebe.Dto.LocationDto;
 import net.blogteamthreecoderhivebe.Enum.EnumLocation;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/locations")
-public class Location {
+public class LocationController {
 
     @RequestMapping(value="", method= RequestMethod.GET)
     public ResponseEntity<List<LocationDto>> getLocationList() {

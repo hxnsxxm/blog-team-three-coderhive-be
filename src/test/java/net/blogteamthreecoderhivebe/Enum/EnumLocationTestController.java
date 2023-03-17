@@ -2,7 +2,7 @@ package net.blogteamthreecoderhivebe.Enum;
 
 import org.junit.jupiter.api.Test;
 
-class EnumLocationTest {
+class EnumLocationTestController {
 
     @Test
     void testGetLocationList() {

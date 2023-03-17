@@ -27,7 +27,6 @@ public enum EnumLocation {
         //return Arrays.asList(Location.values());
         List<LocationDto> list = new ArrayList<>();
         for (EnumLocation loc : EnumLocation.values()) {
-            System.out.println(loc.getCodeLocation() + ", " +loc.getKoreanLocation());
             LocationDto locationDto = new LocationDto(loc.getCodeLocation(), loc.getKoreanLocation());
             list.add(locationDto);
         }
