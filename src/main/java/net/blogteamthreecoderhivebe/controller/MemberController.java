@@ -32,6 +32,7 @@ public class MemberController {
     public MemberInfoWithPostResponse searchMemberInfo(@RequestParam Long memberId, @RequestParam Long searchMemberId) {
         MemberWithPostDto memberWithPostDto = memberService.searchMemberInfoAll(searchMemberId);
         List<Long> postIds = likePostService.searchLikePost(memberId);
+        System.out.println("d");
         return MemberInfoWithPostResponse.from(memberWithPostDto, postIds);
     }
 }
