@@ -57,6 +57,21 @@ public class CoderHiveRepositoryTest {
     @Autowired
     private JPAQueryFactory queryFactory;
 
+    @DisplayName("isNotNull 테스트")
+    @Test
+    public void isNotNullRepository() {
+        assertThat(memberRepository).isNotNull();
+        assertThat(postRepository).isNotNull();
+        assertThat(replyRepository).isNotNull();
+        assertThat(jobRepository).isNotNull();
+        assertThat(likePostRepository).isNotNull();
+        assertThat(locationRepository).isNotNull();
+        assertThat(postJobRepository).isNotNull();
+        assertThat(skillRequirementRepository).isNotNull();
+        assertThat(technologyRepository).isNotNull();
+        assertThat(memberApplyRepository).isNotNull();
+        assertThat(memberTechnologyRepository).isNotNull();
+    }
 
     @DisplayName("job 테스트")
     @Test
@@ -70,6 +85,35 @@ public class CoderHiveRepositoryTest {
 
     }
 
+    @DisplayName("Member - 유저정보 조회 - Id")
+    @Test
+    public void getMemberById() {
+        Job job = Job.of("백엔드 개발", "웹 서버");
+        System.out.println("wait");
+        jobRepository.save(job);
+        //long id = 0;
+        String nickname = "한샘";
+//        Member member = Member.of(job, "example@coderhive.com", MemberLevel.BEGINNER, MemberCareer.ASSOCIATE, nickname);
+
+        Job savedJob = jobRepository.findById((long)1).get();
+
+        Member member = Member.builder()
+                        .job(savedJob)
+                        .email("example@coderhive.com")
+                        .level(MemberLevel.BEGINNER)
+                        .career(MemberCareer.ASSOCIATE)
+                        .nickname(nickname)
+                        .build();
+
+
+
+        memberRepository.save(member);
+        System.out.println("wait");
+        Optional<Member> savedMember = memberRepository.findByNickname(nickname);
+
+        assertThat(member.equals(savedMember));
+
+    }
 /*
 
     @DisplayName("QueryFactory 테스트")
